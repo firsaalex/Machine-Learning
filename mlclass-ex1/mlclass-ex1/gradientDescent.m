@@ -19,8 +19,15 @@ for iter = 1:num_iters
    
     sum=zeros(size(X,2));
 
-    gradJ = X'* (X*theta - y) / m;
-    theta = theta - alpha * gradJ;
+    for j = 1:size(X,2)
+        for i = 1:m
+           sum(j) = sum(j) + (theta'*X(i,:)' - y(i)) * X(i,j); 
+
+        end
+        
+        theta(j) = theta(j) - alpha/m*sum(j); 
+
+    end
     % ============================================================
 
     % Save the cost J in every iteration    

@@ -34,9 +34,9 @@ clear ; close all; clc
 fprintf('Loading data ...\n');
 
 %% Load Data
-data = load('flat.txt');
-X = data(:, 1:4);
-y = data(:, 5);
+data = load('ex1data2.txt');
+X = data(:, 1:2);
+y = data(:, 3);
 m = length(y);
 
 % Print out some data points
@@ -111,8 +111,6 @@ price = 1*theta(1) + (1650-mu(1))/sigma(1)*theta(2) + (3-mu(2))/sigma(2)*theta(3
 
 fprintf(['Predicted price of a 1650 sq-ft, 3 br house ' ...
          '(using gradient descent):\n $%f\n'], price);
-     
-
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
@@ -153,11 +151,9 @@ fprintf('\n');
 % ====================== YOUR CODE HERE ======================
 price = [1 1650 3]*theta; % You should change this
 
-priceMy = [1 1 8 11.75 6]*theta;
+
 % ============================================================
 
 fprintf(['Predicted price of a 1650 sq-ft, 3 br house ' ...
          '(using normal equations):\n $%f\n'], price);
-     
-fprintf('My price: %f\n', price*1000);
 
