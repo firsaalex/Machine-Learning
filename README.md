@@ -1,5 +1,5 @@
 Machine-Learning
 ================
-Stanford Machile Learnong course
+Stanford Machine Learning course
 
 Algorithms Matlab (Octave) implementation
