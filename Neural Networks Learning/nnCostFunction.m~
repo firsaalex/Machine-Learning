@@ -99,18 +99,12 @@ for i = 1 : m
     
     d3 = a3 - yk(:,i);
     z2 = [1 z2'];
-    d2 = Theta2'* d3.*sigmoidGradient(z2)';
+    d2 = Theta2'* d3.*sigmoid(z2)';
     d2 = d2(2:end);
     
-    Theta2_grad = Theta2_grad + d3 * a2;
-    Theta1_grad = Theta1_grad + d2 * a1'; 
+    Theta1_grad = 
 end
 
-%% Regularization
-Theta1_grad(:, 1) = Theta1_grad(:, 1) ./ m;        
-Theta1_grad(:, 2:end) = Theta1_grad(:, 2:end) ./ m + ((lambda/m) * Theta1(:, 2:end));
-Theta2_grad(:, 1) = Theta2_grad(:, 1) ./ m;
-Theta2_grad(:, 2:end) = Theta2_grad(:, 2:end) ./ m + ((lambda/m) * Theta2(:, 2:end));
 %% =========================================================================
 
 % Unroll gradients
